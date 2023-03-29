@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>BluePeak.Store</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- fevicon -->
+    <link rel="icon" href="images/fevicon.png" type="image/gif" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- owl stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+        media="screen">
+    <style>
+        table td img {
+            max-width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+</head>
+<!-- body -->
+
+<body class="main-layout">
+    <!-- loader  -->
+    <div class="loader_bg">
+        <div class="loader"><img src="images/loading.gif" alt="#" /></div>
+    </div>
+    <!-- end loader -->
+    <!-- header -->
+    <header>
+        <!-- header inner -->
+        <div class="header">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+                        <div class="full">
+                            <div class="center-desk">
+                                <div class="logo">
+                                    <a href="index.html"><img src="images/logo.png" alt="#"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+                        <div class="menu-area">
+                            <div class="limit-box">
+                                <nav class="main-menu">
+                                    <ul class="menu-area-main">
+                                        <li class="active"> <a href="index.html">Home</a> </li>
+                                        <li> <a href="about.html">About</a> </li>
+                                        <li><a href="brand.html">Brand</a></li>
+                                        <li><a href="special.html">Specials</a></li>
+                                        <li><a href="contact.html">Contact Us</a></li>
+                                        <li class="last">
+                                            <a href="#"><img src="images/search_icon.png" alt="icon" /></a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 offset-md-6">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end header inner -->
+    </header>
+
+    <section class="cart container mt-2 my-3 py-5">
+        <div class="container mt-2">
+            <h4>Your Cart</h4>
+        </div>
+        <table class="table table-hover">
+            <thead>
+                <tr style="color: red;">
+                    <th scope="col">Product</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% cart.forEach(function(item) { %>
+                    <tr>
+                        <td>
+                            <div class="d-flex">
+                                <img src="images/<%= item.image %>" alt="img" width="100" class="mr-3" />
+                                <div>
+                                    <h2>
+                                        <%= item.name %>
+                                    </h2>
+                                    <% if(item.sale_price){ %>
+                                        <h3 class="text-muted"><del>₹<%= item.price %></del></h3>
+                                        <h2><span class="font-weight-bold text-danger ml-2">₹<%= item.sale_price %>
+                                                    </span></h2>
+                                        <% } else{ %>
+                                            <small><span class="font-weight-bold">₹<%= item.price %></span></small>
+                                            <% } %>
+                                                <br />
+                                                <form method="post" action="/remove_product">
+                                                    <input type="hidden" name="id" value="<%= item.id %>">
+
+                                                    <input type="submit" name="remove_btn" value="remove"
+                                                        class="remove_btn" />
+                                                </form>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <form method="post" action="/edit_product_quantity">
+
+                                <input type="hidden" value="<%= item.id %>" name="id">
+                                <input type="submit" value="-" class="edit-btn" name="decrease_product_quantity">
+
+                                <input type="text" value="1" class="quantity" readonly>
+                                <input type="submit" value="+" class="edit-btn" name="increase_product_quantity">
+                            </form>
+                        </td>
+
+                        <td>
+                            <% if(item.sale_price){ %>
+                                <h1><span class="product-price">₹<%= item.sale_price * item.quantity %></span></h1>
+                                <% } else{ %>
+                                    <h1><span class="product-price">₹<%= item.price * item.quantity %></span></h1>
+                                    <% } %>
+                        </td>
+                    </tr>
+                    <% }) %>
+            </tbody>
+        </table>
+
+        <div class="cart-total text-right">
+            <table style="align-items: center;">
+                <tr>
+                    <td>
+                        <h1><strong>Total</strong></h1>
+                    </td>
+                    <td>
+                        <h1><strong>₹ <%= total %></strong></h1>
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+        <div class="checkout_container">
+            <form method="get" action="/checkout">
+                <input type="submit" class="btn checkout-btn" value="Checkout" name="">
+            </form>
+
+        </div>
+
+
+
+    </section>
+
+
+
+    <!-- end cart -->
+
+    <!-- footer -->
+    <footer>
+        <div id="contact" class="footer">
+            <div class="container">
+                <div class="row pdn-top-30">
+                    <div class="col-md-12 ">
+                        <div class="footer-box">
+                            <div class="headinga">
+                                <h3>Address</h3>
+                                <span>Healing Center, 176 W Streetname,New York, NY 10014, US</span>
+                                <p>(+71) 8522369417
+                                    <br>demo@gmail.com
+                                </p>
+                            </div>
+                            <ul class="location_icon">
+                                <li> <a href="#"><i class="fa fa-facebook-f"></i></a></li>
+                                <li> <a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li> <a href="#"><i class="fa fa-instagram"></i></a></li>
+
+                            </ul>
+                            <div class="menu-bottom">
+                                <ul class="link">
+                                    <li> <a href="#">Home</a></li>
+                                    <li> <a href="#">About</a></li>
+
+                                    <li> <a href="#">Brand </a></li>
+                                    <li> <a href="#">Specials </a></li>
+                                    <li> <a href="#"> Contact us</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+    <!-- end footer -->
+    <!-- Javascript files-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <script src="js/plugin.js"></script>
+    <!-- sidebar -->
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/custom.js"></script>
+    <!-- javascript -->
+    <script src="js/owl.carousel.js"></script>
+    <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".fancybox").fancybox({
+                openEffect: "none",
+                closeEffect: "none"
+            });
+
+            $(".zoom").hover(function () {
+
+                $(this).addClass('transition');
+            }, function () {
+
+                $(this).removeClass('transition');
+            });
+        });
+    </script>
+</body>
+
+</html>
