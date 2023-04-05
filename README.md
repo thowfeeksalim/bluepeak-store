@@ -5,7 +5,7 @@
 <a href="https://twitter.com/intent/follow?screen_name=thowfeeksalim6">
         <img src="https://img.shields.io/twitter/follow/thowfeeksalim6?style=social&logo=twitter"
             alt="follow on Twitter"></a>
-<a href=#><img src="/16.gif"></a>
+<a href=#><img src="./Screenshot/IndexPage -1.png"></a>
 
 <br>
 <h1 align="center"> <strong> Bluepeak-store Repo 🛍️ </strong> </h1> 
