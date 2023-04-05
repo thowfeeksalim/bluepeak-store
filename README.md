@@ -5,7 +5,10 @@
 <a href="https://twitter.com/intent/follow?screen_name=thowfeeksalim6">
         <img src="https://img.shields.io/twitter/follow/thowfeeksalim6?style=social&logo=twitter"
             alt="follow on Twitter"></a>
-<a href=#><img src="./Screenshot/IndexPage -1.png"></a>
+<a href=#><img src="/Screenshots/Index Page -1.png"></a>
+<a href=#><img src="/Screenshots/About Page.png"></a>
+
+
 
 <br>
 <h1 align="center"> <strong> Bluepeak-store Repo 🛍️ </strong> </h1> 
@@ -53,7 +56,7 @@
 
 ## About The Project
 
-<img src="/ss.png">
+<a href=#><img src="/Screenshots/Our Brand Page.png"></a>
 
 
 
@@ -79,6 +82,8 @@ The application provides advanced search functionality that allows customers to 
 
 ### Responsive Front-End Design:
  The front-end of the application is designed to be fully responsive, providing a seamless experience across different devices, including desktops, tablets, and mobile phones.
+
+<a href=#><img src="/Screenshots/Cart Page.png"></a>
 
 ## Technologies Used 💻 
 The Bluepeak-store application is built using cutting-edge technologies that are widely used in the web development community:
@@ -113,7 +118,7 @@ Start with the latest version of NPM to avoid any errors:
   ```sh
   npm install npm@latest -g
   ```
-
+<a href=#><img src="/Screenshots/Paypal page.png"></a>
 ## Installation 🛠️
 Getting the Bluepeak-store application up and running on your local machine is straightforward. Just follow these steps:
 
