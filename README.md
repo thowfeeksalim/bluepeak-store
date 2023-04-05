@@ -118,7 +118,7 @@ Start with the latest version of NPM to avoid any errors:
   ```sh
   npm install npm@latest -g
   ```
-<a href=#><img src="/Screenshots/Paypal page.png"></a>
+<a href=#><img src="/Screenshots/Payment Page.png"></a>
 ## Installation 🛠️
 Getting the Bluepeak-store application up and running on your local machine is straightforward. Just follow these steps:
 
@@ -203,4 +203,4 @@ SOFTWARE.
 [issues-url]: https://github.com/thowfeeksalim/bluepeak-store/issues
 [license-shield]: https://img.shields.io/apm/l/vim-mode?label=LICENSE&style=for-the-badge
 [license-url]: https://github.com/thowfeeksalim/bluepeak-store/blob/master/LICENSE.txt
-<img src="/ss.png">
+<a href=#><img src="/Screenshots/Paypal page.png"></a>
