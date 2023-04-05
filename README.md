@@ -56,7 +56,7 @@
 
 ## About The Project
 
-<a href=#><img src="/Screenshots/Our Brand Page.png"></a>
+
 
 
 
@@ -82,7 +82,7 @@ The application provides advanced search functionality that allows customers to 
 
 ### Responsive Front-End Design:
  The front-end of the application is designed to be fully responsive, providing a seamless experience across different devices, including desktops, tablets, and mobile phones.
-
+<a href=#><img src="/Screenshots/Our Brand Page.png"></a>
 <a href=#><img src="/Screenshots/Cart Page.png"></a>
 
 ## Technologies Used 💻 
